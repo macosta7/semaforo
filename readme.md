@@ -83,6 +83,11 @@ Com todas as conexões feitas, o circuito está pronto para receber o código.
 <img src="assets/usb-semaforo.jpg" alt="Componentes" width="800"/>
 <p>Material produzido por: Marcela</p>
 </div>
+<div align="center">
+<p>Semáforo Pronto</p>
+<img src="assets/foto-semaforo.jpg" alt="Componentes" width="800"/>
+<p>Material produzido por: Marcela</p>
+</div>
 
 ---
 
@@ -100,26 +105,69 @@ Este ciclo se repete devido a função `loop()`. Abaixo está o código utilizad
   <summary>Ver código completo</summary>
 
 ```cpp
-void setup()
-{
-  pinMode(0, OUTPUT); //vermelho
-  pinMode (1, OUTPUT); //amarelo
-  pinMode (2, OUTPUT); //verde
+class Semaforo {
+  
+  private: //membros privados
+    int _pinoVermelho;  //pino do LED vermelho
+    int _pinoAmarelo;   //pino do LED amarelo
+    int _pinoVerde;     //pino do LED verde
+
+    void desligarTudo() { //apaga todos os LEDs
+      digitalWrite(_pinoVermelho, LOW); 
+      digitalWrite(_pinoAmarelo, LOW);
+      digitalWrite(_pinoVerde, LOW);
+    }
+
+  public: //membros públicos
+    Semaforo(int pinoV, int pinoA, int pinoVd) {
+      _pinoVermelho = pinoV;
+      _pinoAmarelo = pinoA;
+      _pinoVerde = pinoVd;
+    }
+
+    void iniciar() { //método de iniciação -> define os LEDs como saída e começa com todos apagados
+      pinMode(_pinoVermelho, OUTPUT);
+      pinMode(_pinoAmarelo, OUTPUT);
+      pinMode(_pinoVerde, OUTPUT);
+      desligarTudo();
+    }
+
+    void ficarVermelho() { //acende somente o vermelho
+      desligarTudo();
+      digitalWrite(_pinoVermelho, HIGH);
+    }
+
+    void ficarVerde() { //acende somente o verde
+      desligarTudo();
+      digitalWrite(_pinoVerde, HIGH);
+    }
+
+    void ficarAmarelo() { //acende somente o amarelo
+      desligarTudo();
+      digitalWrite(_pinoAmarelo, HIGH);
+    }
+};
+
+Semaforo* meuSemaforoPtr = nullptr; //ponteiro
+
+const int PINO_VERMELHO = 0; //led vermelho no pino 0
+const int PINO_AMARELO = 1; //led amarelo no pino 1
+const int PINO_VERDE = 2; //led verde no pino 2
+
+void setup() {
+  meuSemaforoPtr = new Semaforo(PINO_VERMELHO, PINO_AMARELO, PINO_VERDE); //cria um novo "semaforo" da classe semaforo definindo os 3 leds como objetos
+  meuSemaforoPtr->iniciar(); //acessa os métodos do ponteiro
 }
 
-void loop()
-{
-  digitalWrite(0, HIGH); //acende o vermelho
+void loop() {
+  meuSemaforoPtr->ficarVermelho(); //chama o método para acender o vermelho
   delay(6000); //espera 6 segundos
-  digitalWrite(0, LOW); //apaga o vermelho
   
-  digitalWrite(2, HIGH); //acende o verde
+  meuSemaforoPtr->ficarVerde(); //chama o método para acender o verde
   delay(4000); //espera 4 segundos
-  digitalWrite(2, LOW); //apaga o verde
   
-  digitalWrite(1, HIGH); //acende o amarelo
+  meuSemaforoPtr->ficarAmarelo(); //chama o método para acender o amarelo
   delay(2000); //espera 2 segundos
-  digitalWrite(1, LOW); //apaga o amarelo
 }
 
 ```
@@ -131,7 +179,7 @@ void loop()
 
 O vídeo abaixo demonstra a montagem física em operação, com os LEDs acendendo e apagando conforme os tempos programados, e demonstra a autoria do projeto.
 
-`[Adicione aqui o link para o seu vídeo de funcionamento no GitHub, YouTube, Google Drive, etc.]`
+[Clique aqui para assistir o vídeo](https://drive.google.com/file/d/10TPv6gVYHV1Vy9fchiWtA9V_I7Oz390n/view?usp=sharing)
 
 ---
 
