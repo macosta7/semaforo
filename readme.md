@@ -194,9 +194,15 @@ Maria Vitória dos Santos
 - **Feedback:**
 "Sistema funcionando segundo a regra de temporização, documentação completa com componentes, passo a passo e código. Possui fotos para registro das etapas e dos componentes. Vídeo com a presença da autora e com o protótipo funcionando!"
 
+- **Nota:**
+10
+
 **Avaliador 2:**
 - **Nome:**
 Karol Rocha Barbosa
 
 - **Feedback:**
 "A documentação está muito clara e organizada, o semáforo funciona corretamente, atende todos os critérios para um 10."
+
+- **Nota:**
+10
