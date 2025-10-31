@@ -187,12 +187,16 @@ O vídeo abaixo demonstra a montagem física em operação, com os LEDs acendend
 
 Conforme solicitado, esta seção registra os resultados das avaliações de pares realizadas por outros alunos.
 
-*(Adicione aqui as tabelas ou prints das avaliações recebidas, incluindo os nomes completos dos avaliadores.)*
-
 **Avaliador 1:**
 - **Nome:**
+Maria Vitória dos Santos
+
 - **Feedback:**
+"Sistema funcionando segundo a regra de temporização, documentação completa com componentes, passo a passo e código. Possui fotos para registro das etapas e dos componentes. Vídeo com a presença da autora e com o protótipo funcionando!"
 
 **Avaliador 2:**
 - **Nome:**
+Karol Rocha Barbosa
+
 - **Feedback:**
+"A documentação está muito clara e organizada, o semáforo funciona corretamente, atende todos os critérios para um 10."
